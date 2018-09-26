@@ -13,7 +13,6 @@ router.get('/callthtwitter/:screenname',requireApiKey, async (req,res) => {
 	const screenname = req.params.screenname.toLowerCase();
 	const twitterFriends = await getFriends(screenname);
 	res.send({
-		result: "success",
 		twitterFriends: twitterFriends
 	});
 });
