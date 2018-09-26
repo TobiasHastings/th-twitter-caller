@@ -1,10 +1,13 @@
 const fetch = require('node-fetch');
 
 exports.getFriends = async function request(screenname) {
-	const url = 'https://hackday-l-twitter.herokuapp.com/twitter_friends_list/'+screenname;
+	const url = process.env.th_twitter_api_url+screenname;
 
   const options = {
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'api_key': process.env.th_twitter_api_key,
+    }
   };
   try {
     const response = await fetch(url, options);
@@ -17,7 +20,7 @@ exports.getFriends = async function request(screenname) {
     //return output.friendlist.users.map((userEntry) => {return {userEntry.screen_name}});
     return output.friendlist.users.map(userEntry => userEntry['screen_name']);
   } catch (error) {
-    logger.error({ event: 'UNABLE_TO_RETRIEVE_FROM_NEXT_API', error: error.message });
+    logger.error({ event: 'UNABLE_TO_RETRIEVE_FROM_API', error: error.message });
     throw error;
   }
 }

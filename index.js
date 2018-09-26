@@ -11,10 +11,7 @@ router.get('/testEndpoint', requireApiKey,(req,res) => {
 
 router.get('/callthtwitter/:screenname',requireApiKey, async (req,res) => {
 	const screenname = req.params.screenname.toLowerCase();
-	console.log('screenname: '+screenname);
 	const twitterFriends = await getFriends(screenname);
-	console.log('friends: '+twitterFriends);
-	//res.send("received");
 	res.send({
 		result: "success",
 		twitterFriends: twitterFriends
