@@ -14,7 +14,7 @@ router.get('/callthtwitter/:screenname',requireApiKey, async (req,res) => {
 	console.log('screenname: '+screenname);
 	const twitterFriends = await getFriends(screenname);
 	console.log('friends: '+twitterFriends);
-	res.send("received");
+	//res.send("received");
 	res.send({
 		result: "success",
 		twitterFriends: twitterFriends
