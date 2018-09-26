@@ -1,0 +1,13 @@
+{
+  "name": "hackday-l-twitter",
+  "version": "1.0.0",
+  "description": "Basic HTTP Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node www"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "https": "^1.0.0"
+  }
+}
