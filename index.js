@@ -3,6 +3,7 @@ const app = express();
 var router = express.Router();
 const { apiAuthMiddleware: requireApiKey } = require('./auth');
 const fetch = require('node-fetch');
+const {getFriends} = require('./twitter-api');
 
 router.get('/testEndpoint', requireApiKey,(req,res) => {
   res.send("hello");
@@ -11,7 +12,13 @@ router.get('/testEndpoint', requireApiKey,(req,res) => {
 router.get('/callthtwitter/:screenname',requireApiKey,(req,res) => {
 	const screenname = req.params.screenname.toLowerCase();
 	console.log('screenname: '+screenname);
-	res.sent("received");
+	const twitterFriends = await getFriends(screenname);
+	console.log('friends: '+twitterFriends);
+	res.send("received");
+	res.send({
+		result: "success",
+		twitterFriends: twitterFriends
+	});
 });
 
 
