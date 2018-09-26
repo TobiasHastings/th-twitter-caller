@@ -9,7 +9,7 @@ router.get('/testEndpoint', requireApiKey,(req,res) => {
   res.send("hello");
 });
 
-router.get('/callthtwitter/:screenname',requireApiKey,(req,res) => {
+router.get('/callthtwitter/:screenname',requireApiKey, asyc (req,res) => {
 	const screenname = req.params.screenname.toLowerCase();
 	console.log('screenname: '+screenname);
 	const twitterFriends = await getFriends(screenname);

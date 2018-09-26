@@ -1,7 +1,7 @@
 {
-  "name": "hackday-l-twitter",
+  "name": "th-twitter-caller",
   "version": "1.0.0",
-  "description": "Basic HTTP Server",
+  "description": "TH Twitter Caller",
   "main": "index.js",
   "scripts": {
     "start": "node www"
