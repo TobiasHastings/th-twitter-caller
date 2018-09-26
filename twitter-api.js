@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 exports.getFriends = async function request(screenname) {
 	const url = process.env.th_twitter_api_url+screenname;
-
+  console.log('url: '+url);
   const options = {
     method: 'GET',
     headers: {
